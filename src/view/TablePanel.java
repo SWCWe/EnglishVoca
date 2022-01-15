@@ -43,10 +43,10 @@ public class TablePanel extends JPanel {
 		
 		setLayout(null);
 		
-		JButton btn1 = new JButton("Ãß°¡");
-		JButton btn2 = new JButton("»èÁ¦");
-		JButton btn3 = new JButton("µÚ·Î");
-		JButton btn4 = new JButton("»õ·Î°íÄ§");
+		JButton btn1 = new JButton("ì¶”ê°€");
+		JButton btn2 = new JButton("ì‚­ì œ");
+		JButton btn3 = new JButton("ë’¤ë¡œ");
+		JButton btn4 = new JButton("ìƒˆë¡œê³ ì¹¨");
 
 		btn1.setBounds(145, 0, 60, 45);
 		btn2.setBounds(205, 0, 60, 45);
@@ -61,7 +61,7 @@ public class TablePanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				reload();
-				System.out.println("»õ·Î°íÄ§");
+				System.out.println("ìƒˆë¡œê³ ì¹¨");
 				System.out.println("size : "+list.size());
 				System.out.println("list : "+list);
 
@@ -100,11 +100,9 @@ public class TablePanel extends JPanel {
 	public void reload() {
 		remove(scrollPane);
 		list = new EngController().loadEngList();
-		// À±Áö
-		// ÄÃ·³Á¤º¸
-		Object[] columnNames = { "´Ü¾î", "¶æ", "¸Þ¸ð" };
+		Object[] columnNames = { "ë‹¨ì–´", "ëœ»", "ë©”ëª¨" };
 
-		// Çà ³»¿ë ÀÔ·Â
+		// í–‰ ë‚´ìš©
 		Object[][] rowData = new Object[list.size()][columnNames.length];
 		for (int i = 0; i < list.size(); i++) {
 			Eng vc = list.get(i);
@@ -125,7 +123,7 @@ public class TablePanel extends JPanel {
 					Eng newEng = new Eng();
 					for (int j = 0; j < colLen; j++) {
 						Object data = model.getValueAt(i, j);
-						// 0¿­ = ´Ü¾î, 1¿­ = ¶æ, 2¿­ = ¸Þ¸ð
+						// 0ì—´ = ë‹¨ì–´, 1ì—´ = ëœ», 2ì—´ = ë©”ëª¨
 						switch (j) {
 						case 0:
 							newEng.setWord((String) data);
@@ -143,7 +141,7 @@ public class TablePanel extends JPanel {
 				}
 				new EngController().modifyList(newList);
 				list = new EngController().loadEngList();
-				System.out.println("Table ¼öÁ¤");
+				System.out.println("Table ìˆ˜ì •");
 				System.out.println("list size : "+list.size());
 				System.out.println("list : "+list);
 			}

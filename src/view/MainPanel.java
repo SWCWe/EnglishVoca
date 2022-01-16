@@ -2,22 +2,20 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
-
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import javax.swing.JButton;
 import controller.EngController;
-import util.MyUtill;
 import vo.Eng;
+import util.MyUtill;
 
 public class MainPanel extends JPanel {
 	
@@ -34,7 +32,7 @@ public class MainPanel extends JPanel {
 			e.printStackTrace();
 		}
 
-		setBackground(Color.green);
+		setBackground(Color.cyan);
 		setLayout(null);
 		JButton btn1 = new JButton("공부할 단어 목록");
 		JButton btn2 = new JButton("공부 시작");
@@ -50,9 +48,7 @@ public class MainPanel extends JPanel {
 		add(btn1);
 		add(btn2);
 		add(btn3);
-
 	}
-
 	
 	public ActionListener addListener(int num) {
 		ActionListener listener = new ActionListener() {

@@ -100,8 +100,6 @@ public class TablePanel extends JPanel {
 	public void reload() {
 		remove(scrollPane);
 		list = new EngController().loadEngList();
-		// 윤지
-		// 컬럼정보
 		Object[] columnNames = { "단어", "뜻", "메모" };
 
 		// 행 내용 입력

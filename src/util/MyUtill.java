@@ -4,22 +4,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class MyUtill {
-	
-	//Frame을 띄워주기 위한 도구모음
-	public static void init(JFrame f, int width, int height, String title) {
-		f.setTitle(title);
-		f.setSize(width,height);
+	public static void init(JFrame f, int w, int h, String s) {
+		f.setTitle(s);
+		f.setSize(w, h);
 		f.setLocationRelativeTo(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	//Frame에서 pannel 전환을 위한 method
-	public static void changePanel(JFrame parent, JPanel current, JPanel next) {
-		parent.remove(current);
-		parent.add(next);
-		parent.revalidate();
-		parent.repaint(); 
-		
+	public static void changePanel(JFrame p, JPanel current, JPanel n) {
+		p.remove(current);
+		p.add(n);
+		p.revalidate();
+		p.repaint(); 
 	}
 	
 }

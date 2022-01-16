@@ -8,65 +8,60 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+import vo.Eng;
 import controller.EngController;
 import util.MyUtill;
-import vo.Eng;
+import javax.imageio.ImageIO;
 
-public class DeleteGUI extends JPanel {
+public class DeleteGUI extends JPanel { //삭제
 	private JFrame parent;
 	private EngController controller = new EngController();
-	private JTextField txt1;
+	private JTextField txt;
 	private BufferedImage image;
 	private List<Eng> list = MainGUI.list;
 
 	public DeleteGUI(JFrame parent) {
 		this.parent = parent;
 
-		// 백그라운드 이미지 그려주기
 		try {
 			image = ImageIO.read(new File("images/deleteImage.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		// null레이아웃
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.cyan);
 		setLayout(null);
 
-		// component setting
 		JButton btn1 = new JButton("뒤로");
 		JButton btn2 = new JButton("삭제");
 		JLabel label = new JLabel("단어");
-		txt1 = new JTextField("");
+		txt = new JTextField("");
 
 		btn1.setBounds(265, 0, 60, 45);
 		btn2.setBounds(260, 250, 60, 45);
 		label.setBounds(15, 250, 50, 45);
-		txt1.setBounds(50, 250, 200, 45);
+		txt.setBounds(50, 250, 200, 45);
 
-		// 뒤로 버튼
 		btn1.addActionListener(addListener(1));
-		// 삭제 버튼
 		btn2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String word = txt1.getText();
+				String word = txt.getText();
 				Eng temp = new Eng(word, "", "");
 				list = new EngController().loadEngList();
+				
 				if (list.contains(temp)) {
 					controller.deleteList(new Eng(word, "", ""));
-					txt1.setText("");
+					txt.setText("");
 					List<Eng> list = new EngController().loadEngList();
+					
 					System.out.println("Delete");
 					System.out.println("list size : " + list.size());
 					System.out.println("list : " + list);
@@ -79,7 +74,7 @@ public class DeleteGUI extends JPanel {
 		add(btn1);
 		add(btn2);
 		add(label);
-		add(txt1);
+		add(txt);
 	}
 
 	public ActionListener addListener(int num) {

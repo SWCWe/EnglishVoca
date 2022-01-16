@@ -29,11 +29,19 @@ public class TestGUI extends JPanel{
 	private List<Eng> list = MainGUI.list;
 	private int size = list.size();
 	private BufferedImage image;
-	private JLabel txt1;
+	private JLabel word; // 해당 단어
+	private JLabel label1; // 맞은 개수 label
+	private JLabel label2; // 틀린 개수 label
+	private JLabel correct;// 맞은 개수 표시 label
+	private JLabel wrong; // 틀린 개수 표시 label 
 	private JButton btn2;
 	private JButton btn3;
 	private JButton btn4;
 	private Eng q,a1,a2,a3;
+	private int correctNum = 0; // 맞은 개수
+	private int wrongNum = 0; // 맞은 개수
+	
+	
 
 	public TestGUI(JFrame parent) {
 		this.parent = parent;
@@ -47,21 +55,53 @@ public class TestGUI extends JPanel{
 		setLayout(null);
 		
 		JButton btn1 = new JButton("메인화면");
-		txt1 = new JLabel();
+		word = new JLabel();
+		label1 = new JLabel();
+		label2 = new JLabel();
+		correct = new JLabel();
+		wrong = new JLabel();
 		btn2 = new JButton();
 		btn3 = new JButton();
 		btn4 = new JButton();
+		
+		
 		Font font1 = new Font("맑은고딕", Font.BOLD, 27);
-		txt1.setFont(font1);
-		txt1.setForeground(Color.white);
-		txt1.setHorizontalAlignment(SwingConstants.CENTER);
+		Font font2 = new Font("함초롬바탕", Font.PLAIN, 12);
+		
+		word.setFont(font1);
+		word.setForeground(Color.white);
+		word.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		label1.setFont(font2);
+		label1.setForeground(Color.black);
+		label1.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		label2.setFont(font2);
+		label2.setForeground(Color.black);
+		label2.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		correct.setFont(font1);
+		correct.setForeground(Color.black);
+		correct.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		wrong.setFont(font1);
+		wrong.setForeground(Color.black);
+		wrong.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		reload();
 		
+		label1.setBounds(5, 2, 60, 20);
+		label2.setBounds(70, 2, 60, 20);
+		
 		btn1.setBounds(230, 0, 100, 45);
-		txt1.setBounds(75, 220, 180, 45);
+		word.setBounds(75, 220, 180, 45);
+		correct.setBounds(20, 20, 30, 30);
+		wrong.setBounds(80, 20, 30, 30);
 		btn2.setBounds(75, 280, 180, 45);
 		btn3.setBounds(75, 330, 180, 45);
 		btn4.setBounds(75, 380, 180, 45);
+		
+		
 
 		btn1.addActionListener(addListener(0));
 		btn2.addActionListener(addListener());
@@ -69,10 +109,15 @@ public class TestGUI extends JPanel{
 		btn4.addActionListener(addListener());
 
 		add(btn1);
-		add(txt1);
+		add(word);
+		add(label1);
+		add(label2);
+		add(correct);
+		add(wrong);
 		add(btn2);
 		add(btn3);
 		add(btn4);
+		
 
 	}
 
@@ -96,11 +141,16 @@ public class TestGUI extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				JButton btn = (JButton)e.getSource();
 				if(q.getMeaning().equals(btn.getText())) {
-					JOptionPane.showMessageDialog(null, "정답");
-				}else
+					correctNum++;
+					JOptionPane.showMessageDialog(null, "정답 \n 맞은 갯수 " + correctNum + "개");
+				}
+				else {
+					wrongNum++;
 					JOptionPane.showMessageDialog(null, "오답\n 정답 : "+q.getWord()+" => "+q.getMeaning());
+				}
 				reload();
 			}
+	
 		};
 		return listener;
 	}
@@ -124,8 +174,11 @@ public class TestGUI extends JPanel{
 			}
 			
 			q=list.get(arr[(int)(Math.random()*3)]);
-			txt1.setText(q.getWord());
-			
+			word.setText(q.getWord());
+			correct.setText(String.valueOf(correctNum));
+			wrong.setText(String.valueOf(wrongNum));
+			label1.setText("맞은 개수");
+			label2.setText("틀린 개수");
 			shuffle(arr, 10);
 			a1=list.get(arr[0]);
 			a2=list.get(arr[1]);

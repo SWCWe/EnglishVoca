@@ -19,7 +19,7 @@ import controller.EngController;
 import util.MyUtill;
 import javax.imageio.ImageIO;
 
-public class DeleteGUI extends JPanel { //삭제
+public class DeleteGUI extends JPanel { // 삭제
 	private JFrame parent;
 	private EngController controller = new EngController();
 	private JTextField txt;

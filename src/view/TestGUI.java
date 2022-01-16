@@ -29,7 +29,7 @@ public class TestGUI extends JPanel{
 	private List<Eng> list = MainGUI.list;
 	private int size = list.size();
 	private BufferedImage image;
-	private JLabel word; // 해당 단어
+	private JLabel word; // 해당 단어(1개)
 	private JLabel label1; // 맞은 개수 label
 	private JLabel label2; // 틀린 개수 label
 	private JLabel correct;// 맞은 개수 표시 label

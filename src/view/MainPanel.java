@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import controller.EngController;
 import vo.Eng;
 import util.MyUtill;
-
+//Panel
 public class MainPanel extends JPanel {
 	
 	private JFrame parent;

@@ -123,7 +123,7 @@ public class TablePanel extends JPanel {
 					Eng newEng = new Eng();
 					for (int j = 0; j < colLen; j++) {
 						Object data = model.getValueAt(i, j);
-						// 0열 = 단어, 1열 = 뜻, 2열 = 메모
+						// 0열 = 단어, 1열 = 뜻, 2열 = 메모 등
 						switch (j) {
 						case 0:
 							newEng.setWord((String) data);

@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 import vo.Eng;
 import controller.EngController;
 import util.MyUtill;
-
+// 1°³¾¿
 public class StudyGUI extends JPanel {
 
 	private JFrame parent;

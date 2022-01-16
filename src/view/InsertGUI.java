@@ -18,7 +18,7 @@ import controller.EngController;
 import vo.Eng;
 import util.MyUtill;
 
-
+//»ðÀÔ
 public class InsertGUI extends JPanel{
 	private JFrame parent;
 	private EngController controller = new EngController();

@@ -18,4 +18,4 @@ public class MyUtill {
 		p.repaint(); 
 	}
 	
-}
+}//¸¶¹«¸®

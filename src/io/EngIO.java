@@ -49,7 +49,7 @@ public class EngIO {
 		}
 	}
 
-	// 있는 것.
+	// 있는 것
 	public List<Eng> loadEngList() {
 		List<Eng> list = new ArrayList<>();
 		File f = new File("Voca.txt");

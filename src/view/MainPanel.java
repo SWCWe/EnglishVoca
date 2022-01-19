@@ -57,6 +57,7 @@ public class MainPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				list = new EngController().loadEngList();
 				if (num == 2) {
+					
 					if (list.size() < 1) {
 						JOptionPane.showMessageDialog(null, "단어장에 단어 1개 이상 필요");
 						return;
